@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 台東三天兩夜家庭慢旅 (11月秋遊) | 桂田喜來登 ‧ 史前文化博物館 ‧ 加路蘭海岸 ‧ 幼兒五道防線</title>
+  <meta name="description" content="專為夫妻兩人與19個月大可愛女兒量身打造的台東三天兩夜自駕慢旅手冊。高雄出發對齊汽座午睡、嚴格落實每日13:00-15:30回飯店休整、五星桂田喜來登市區連住兩晚、史前館全室內無障礙推車探索、卑南大草坪放電、加路蘭太平洋壯闊海景與市區醫療急診防護網。">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ocean: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              200: '#99f6e4',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+            },
+            taitung: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            },
+            warm: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+            },
+            leaf: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Noto Sans TC"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- exifr - EXIF & GPS Parser -->
+  <script src="https://cdn.jsdelivr.net/npm/exifr/dist/full.umd.js"></script>
+  <!-- Leaflet Map CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+    }
+    #map {
+      height: 480px;
+      border-radius: 1rem;
+      z-index: 10;
+    }
+    .img-zoom-container {
+      overflow: hidden;
+      border-radius: 1rem;
+    }
+    .img-zoom-container img {
+      transition: transform 0.5s ease;
+    }
+    .img-zoom-container:hover img {
+      transform: scale(1.04);
+    }
+    @media print {
+      .no-print { display: none !important; }
+      .print-full { width: 100% !important; margin: 0 !important; }
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans selection:bg-teal-500 selection:text-white pb-24 md:pb-12">
+
+  <!-- Top Sticky Navigation Bar -->
+  <nav class="sticky top-0 z-50 glass-nav border-b border-slate-200 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo / Brand -->
+        <a href="#" class="flex items-center space-x-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 to-teal-500 flex items-center justify-center text-white shadow-md shadow-teal-500/20 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-mountain-sun text-lg"></i>
+          </div>
+          <div>
+            <span class="text-base sm:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-1.5">
+              台東三天兩夜家庭慢旅
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-teal-100 text-teal-800 font-semibold border border-teal-200">2026 秋季版</span>
+            </span>
+            <span class="text-xs text-slate-500 block">夫妻兩人 ＋ 19 個月大女兒 ｜ 高雄自駕出發</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden lg:flex items-center space-x-1 font-medium text-sm text-slate-600">
+          <a href="#weather-dashboard" class="px-3 py-2 rounded-lg hover:text-teal-600 hover:bg-slate-100 transition"><i class="fa-solid fa-cloud-sun text-teal-500 mr-1.5"></i>天氣看板</a>
+          <a href="#itinerary-section" class="px-3 py-2 rounded-lg hover:text-teal-600 hover:bg-slate-100 transition"><i class="fa-solid fa-route text-teal-500 mr-1.5"></i>行程規劃</a>
+          <a href="#hotel-section" class="px-3 py-2 rounded-lg hover:text-teal-600 hover:bg-slate-100 transition"><i class="fa-solid fa-hotel text-teal-500 mr-1.5"></i>住宿評估</a>
+          <a href="#baby-tips" class="px-3 py-2 rounded-lg hover:text-teal-600 hover:bg-slate-100 transition"><i class="fa-solid fa-shield-heart text-rose-500 mr-1.5"></i>幼兒五道防線</a>
+          <a href="#checklist-section" class="px-3 py-2 rounded-lg hover:text-teal-600 hover:bg-slate-100 transition"><i class="fa-solid fa-list-check text-amber-500 mr-1.5"></i>打包清單</a>
+          <a href="#map-section" class="px-3 py-2 rounded-lg hover:text-teal-600 hover:bg-slate-100 transition"><i class="fa-solid fa-map-location-dot text-indigo-500 mr-1.5"></i>互動地圖</a>
+          <a href="#photo-story-section" class="px-3 py-2 rounded-lg hover:text-teal-600 hover:bg-slate-100 transition"><i class="fa-solid fa-camera-retro text-purple-500 mr-1.5"></i>照片手帳</a>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center space-x-2">
+          <!-- Emergency Button -->
+          <button onclick="toggleModal('emergency-modal')" class="px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200 transition flex items-center gap-1.5 shadow-xs">
+            <i class="fa-solid fa-truck-medical text-rose-600"></i>
+            <span class="hidden sm:inline">醫療急救直通</span>
+          </button>
+          <!-- Print Button -->
+          <button onclick="window.print()" class="no-print p-2 text-slate-500 hover:text-slate-800 rounded-lg hover:bg-slate-100 transition" title="列印或另存 PDF">
+            <i class="fa-solid fa-print"></i>
+          </button>
+          <!-- Mobile Menu Toggle Button -->
+          <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-100">
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white/95 px-4 pt-3 pb-4 space-y-1 text-sm font-medium">
+      <a href="#weather-dashboard" class="block px-3 py-2 rounded-lg hover:bg-teal-50 hover:text-teal-700"><i class="fa-solid fa-cloud-sun text-teal-500 w-6"></i>即時天氣 ＆ 11月氣候</a>
+      <a href="#itinerary-section" class="block px-3 py-2 rounded-lg hover:bg-teal-50 hover:text-teal-700"><i class="fa-solid fa-route text-teal-500 w-6"></i>每日行程時間軸 (Day 1~3)</a>
+      <a href="#hotel-section" class="block px-3 py-2 rounded-lg hover:bg-teal-50 hover:text-teal-700"><i class="fa-solid fa-hotel text-teal-500 w-6"></i>住宿深度評估 (桂田喜來登 vs 知本老爺)</a>
+      <a href="#baby-tips" class="block px-3 py-2 rounded-lg hover:bg-teal-50 hover:text-teal-700"><i class="fa-solid fa-shield-heart text-rose-500 w-6"></i>五道嬰幼兒關卡檢核</a>
+      <a href="#checklist-section" class="block px-3 py-2 rounded-lg hover:bg-teal-50 hover:text-teal-700"><i class="fa-solid fa-list-check text-amber-500 w-6"></i>旅行打包互動清單</a>
+      <a href="#map-section" class="block px-3 py-2 rounded-lg hover:bg-teal-50 hover:text-teal-700"><i class="fa-solid fa-map-location-dot text-indigo-500 w-6"></i>行程景點 ＆ 醫療 GPS 導航地圖</a>
+      <a href="#photo-story-section" class="block px-3 py-2 rounded-lg hover:bg-teal-50 hover:text-teal-700"><i class="fa-solid fa-camera-retro text-purple-500 w-6"></i>照片回憶手帳 (EXIF GPS 自動對齊)</a>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <header class="relative overflow-hidden bg-gradient-to-b from-teal-900 via-cyan-900 to-slate-900 text-white pt-12 pb-20 sm:pt-16 sm:pb-24">
+    <!-- Background Decor -->
+    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#14b8a6_1px,transparent_1px)] [background-size:20px_20px]"></div>
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-teal-500/20 blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 -left-20 w-80 h-80 rounded-full bg-cyan-500/20 blur-3xl pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl space-y-4">
+        <!-- Badges -->
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="badge-pill bg-teal-500/20 text-teal-300 border border-teal-400/30">
+            <i class="fa-solid fa-car mr-1.5"></i>高雄出發 ‧ 自駕南迴公路
+          </span>
+          <span class="badge-pill bg-amber-500/20 text-amber-300 border border-amber-400/30">
+            <i class="fa-solid fa-baby mr-1.5"></i>19 個月幼兒節奏適配
+          </span>
+          <span class="badge-pill bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
+            <i class="fa-solid fa-clock-rotate-left mr-1.5"></i>每天限 2 核心點 ‧ 必回房午休
+          </span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+          台東三天兩夜家庭慢旅<br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-cyan-200 to-amber-200">
+            盡興且不累的慢活時光
+          </span>
+        </h1>
+
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed pt-1">
+          為夫妻兩人與 <strong class="text-amber-300 font-semibold">19 個月大可愛女兒</strong> 精心策劃。
+          嚴守幼兒生理時鐘：去回程對齊下午汽座午睡、每日中午必返五星飯店休整、兩晚同宿市區桂田喜來登緊鄰醫學中心、史前館全室內無障礙探索、卑南大草坪放電與加路蘭太平洋浩瀚風光。
+        </p>
+
+        <!-- Quick Info Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 text-xs sm:text-sm">
+          <div class="bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/10">
+            <div class="text-teal-300 font-medium mb-0.5"><i class="fa-solid fa-calendar-days mr-1"></i>出行月份</div>
+            <div class="text-white font-bold">2026 年 11 月 (秋季)</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/10">
+            <div class="text-teal-300 font-medium mb-0.5"><i class="fa-solid fa-hotel mr-1"></i>住宿推薦</div>
+            <div class="text-white font-bold">台東桂田喜來登 (連住2晚)</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/10">
+            <div class="text-teal-300 font-medium mb-0.5"><i class="fa-solid fa-bed mr-1"></i>幼兒午睡</div>
+            <div class="text-white font-bold">每日 13:00-15:30 嚴格休整</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/10">
+            <div class="text-teal-300 font-medium mb-0.5"><i class="fa-solid fa-hospital mr-1"></i>醫療後盾</div>
+            <div class="text-white font-bold">市區三大醫院車程 &lt; 5 分鐘</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 space-y-12">
+
+    <!-- 1. Real-time Weather & Climate Section -->
+    <section id="weather-dashboard" class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-8 relative z-20">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-teal-500 animate-pulse"></span>
+            <span class="text-xs font-bold uppercase tracking-wider text-teal-700">Taitung Climate & Live Weather</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mt-1 flex items-center gap-2">
+            <i class="fa-solid fa-cloud-sun text-teal-600"></i> 台東 11 月秋季氣候看板與即時觀測
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-0.5">出發打包前即時掌握太平洋海岸秋季溫差、東北季風與日落時間</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="https://www.cwa.gov.tw/V8/C/W/County/County.html?CID=10014" target="_blank" rel="noopener" class="text-xs font-semibold px-3 py-2 rounded-lg bg-teal-50 text-teal-700 border border-teal-200 hover:bg-teal-100 transition inline-flex items-center gap-1.5">
+            <i class="fa-solid fa-up-right-from-square"></i> CWA 台東即時氣象
+          </a>
+        </div>
+      </div>
+
+      <!-- Weather Cards Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6">
+        <!-- Temp -->
+        <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-4 border border-amber-100 flex items-start space-x-3">
+          <div class="w-10 h-10 rounded-lg bg-amber-500 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
+            <i class="fa-solid fa-temperature-half text-lg"></i>
+          </div>
+          <div>
+            <div class="text-xs text-slate-500 font-medium">氣溫預估</div>
+            <div class="text-lg sm:text-xl font-bold text-slate-800">22°C ~ 27°C</div>
+            <div class="text-[11px] text-amber-700 mt-0.5">秋高氣爽，早晚涼意顯著</div>
+          </div>
+        </div>
+
+        <!-- Wind & Monsoon -->
+        <div class="bg-gradient-to-br from-cyan-50 to-teal-50 rounded-xl p-4 border border-cyan-100 flex items-start space-x-3">
+          <div class="w-10 h-10 rounded-lg bg-teal-600 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
+            <i class="fa-solid fa-wind text-lg"></i>
+          </div>
+          <div>
+            <div class="text-xs text-slate-500 font-medium">東北季風</div>
+            <div class="text-lg sm:text-xl font-bold text-slate-800">海線陣風較強</div>
+            <div class="text-[11px] text-teal-700 mt-0.5">加路蘭必備幼兒防風連帽外套</div>
+          </div>
+        </div>
+
+        <!-- Sunset & Sunlight -->
+        <div class="bg-gradient-to-br from-rose-50 to-pink-50 rounded-xl p-4 border border-rose-100 flex items-start space-x-3">
+          <div class="w-10 h-10 rounded-lg bg-rose-500 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
+            <i class="fa-solid fa-sun text-lg"></i>
+          </div>
+          <div>
+            <div class="text-xs text-slate-500 font-medium">日落時間 (早天黑)</div>
+            <div class="text-lg sm:text-xl font-bold text-slate-800">約 17:15</div>
+            <div class="text-[11px] text-rose-700 mt-0.5">戶外行程需在 16:45 前結束</div>
+          </div>
+        </div>
+
+        <!-- UV & Care -->
+        <div class="bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl p-4 border border-emerald-100 flex items-start space-x-3">
+          <div class="w-10 h-10 rounded-lg bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
+            <i class="fa-solid fa-umbrella text-lg"></i>
+          </div>
+          <div>
+            <div class="text-xs text-slate-500 font-medium">紫外線與降雨</div>
+            <div class="text-lg sm:text-xl font-bold text-slate-800">UV 5~6 / 降雨低</div>
+            <div class="text-[11px] text-emerald-700 mt-0.5">台東11月屬乾涼期，偶有微雨</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Baby Care Autumn Alert Note -->
+      <div class="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-700 flex items-start gap-3">
+        <i class="fa-solid fa-circle-exclamation text-amber-500 text-base mt-0.5"></i>
+        <div class="leading-relaxed">
+          <strong class="text-slate-900 font-semibold">19 個月幼兒穿著與出遊叮嚀：</strong>
+          11 月台東正值東北季風季節，市區與史前館室內空調宜人，但海線景點（如加路蘭、小野柳）風勢明顯，請為寶寶採取<strong>「洋蔥式穿法」</strong>：內層純棉吸汗包屁衣、中層長袖上衣、外層防風連帽薄外套，並準備一條薄棉被或推車防風罩，避免被海風直吹著涼。
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Decision Matrix & Travel Subsidy -->
+    <section id="subsidy-section" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+      <div class="border-b border-slate-100 pb-4">
+        <span class="badge-pill bg-blue-100 text-blue-800 text-xs"><i class="fa-solid fa-scale-balanced mr-1.5"></i>決策決斷點</span>
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mt-2">2026 出行日期與國旅補助取捨矩陣</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">2026 年觀光署平日住宿獎助實施期間（9/1–11/30），限「週日至週四入住」</p>
+      </div>
+
+      <!-- Warning Box -->
+      <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 text-xs sm:text-sm text-amber-900 flex items-start gap-3">
+        <i class="fa-solid fa-triangle-exclamation text-amber-600 text-lg mt-0.5"></i>
+        <div class="space-y-1">
+          <strong class="font-bold">關鍵衝突提醒：</strong>
+          若選擇「週五至週日（方案 A）」出發，兩晚入住日（週五、週六）皆不屬於平日補助範圍，無法領取國旅補助（折抵 0 元）。同一旅宿連住兩晚最多可折 2,000 元（第 1 晚 800、第 2 晚 1,200）。相對於五星飯店房價，補助佔比有限，決策取決於您希望免請假或是享有省錢優勢。
+        </div>
+      </div>
+
+      <!-- Comparison Table -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs sm:text-sm border-collapse">
+          <thead>
+            <tr class="bg-slate-100 text-slate-700 border-b border-slate-200">
+              <th class="py-3 px-4 font-semibold">方案</th>
+              <th class="py-3 px-4 font-semibold">入住夜晚</th>
+              <th class="py-3 px-4 font-semibold">補助總額</th>
+              <th class="py-3 px-4 font-semibold">休假成本與代價</th>
+              <th class="py-3 px-4 font-semibold">綜合推薦指數</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            <tr class="hover:bg-slate-50/80">
+              <td class="py-3.5 px-4 font-bold text-slate-900 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-teal-500"></span> 方案 A：週五至週日 (照原規劃)
+              </td>
+              <td class="py-3.5 px-4 text-slate-600">週五、週六</td>
+              <td class="py-3.5 px-4 font-bold text-rose-600">0 元 (週末不適用)</td>
+              <td class="py-3.5 px-4 text-slate-600">零請假負擔，週一正常工作</td>
+              <td class="py-3.5 px-4"><span class="badge-pill bg-teal-100 text-teal-800 text-xs">推薦 (時間最自主)</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50/80">
+              <td class="py-3.5 px-4 font-bold text-slate-900 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-blue-500"></span> 方案 B：週日至週二 (省錢大師)
+              </td>
+              <td class="py-3.5 px-4 text-slate-600">週日、週一</td>
+              <td class="py-3.5 px-4 font-bold text-emerald-600">每房省 2,000 元 (800+1200)</td>
+              <td class="py-3.5 px-4 text-slate-600">需請假 1~2 天；史前館週一休館需對調行程</td>
+              <td class="py-3.5 px-4"><span class="badge-pill bg-blue-100 text-blue-800 text-xs">適合若有年假</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50/80">
+              <td class="py-3.5 px-4 font-bold text-slate-900 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-slate-400"></span> 方案 C：週四至週六 (折衷型)
+              </td>
+              <td class="py-3.5 px-4 text-slate-600">週四、週五</td>
+              <td class="py-3.5 px-4 font-bold text-amber-600">僅第一晚 800 元 (週五無)</td>
+              <td class="py-3.5 px-4 text-slate-600">需請假 1 天，但補助只拿到 800 元效益低</td>
+              <td class="py-3.5 px-4"><span class="badge-pill bg-slate-100 text-slate-600 text-xs">不特別推薦</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="text-xs text-slate-500 leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-200">
+        <i class="fa-solid fa-circle-info text-blue-500 mr-1"></i>
+        <strong>補助申請須知：</strong>若選擇方案 B 或 C，需向「臺灣旅宿網」公告之合法參與業者直接訂房（Agoda、Booking.com、Airbnb 等海外平台通常不適用）。入住前需至觀光署國旅補助平台登錄身分證並上傳健保卡。
+      </div>
+    </section>
+
+    <!-- 3. Itinerary Section -->
+    <section id="itinerary-section" class="space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <span class="badge-pill bg-teal-100 text-teal-800 text-xs"><i class="fa-solid fa-calendar-check mr-1.5"></i>慢活節奏</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">三天兩夜完整行程時間軸</h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">貫徹「每天最多 2 核心點 ‧ 去回程汽座午睡 ‧ 13:00-15:30 嚴格休整」鐵律</p>
+        </div>
+
+        <!-- Day Filter Tabs -->
+        <div class="flex items-center bg-slate-200/80 p-1 rounded-xl self-start sm:self-auto text-xs sm:text-sm font-semibold">
+          <button id="btn-all" onclick="filterDay('all')" class="filter-btn active px-3.5 py-1.5 rounded-lg bg-teal-700 text-white shadow-xs transition">全部天數</button>
+          <button id="btn-day1" onclick="filterDay('day1')" class="filter-btn px-3.5 py-1.5 rounded-lg bg-transparent text-slate-700 hover:text-slate-900 transition">Day 1 移動</button>
+          <button id="btn-day2" onclick="filterDay('day2')" class="filter-btn px-3.5 py-1.5 rounded-lg bg-transparent text-slate-700 hover:text-slate-900 transition">Day 2 探索</button>
+          <button id="btn-day3" onclick="filterDay('day3')" class="filter-btn px-3.5 py-1.5 rounded-lg bg-transparent text-slate-700 hover:text-slate-900 transition">Day 3 返程</button>
+        </div>
+      </div>
+
+      <!-- DAY 1 CARD -->
+      <div id="day1" class="day-card bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <div class="bg-gradient-to-r from-teal-700 to-cyan-800 text-white p-5 sm:p-6 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center font-black text-lg">
+              D1
+            </div>
+            <div>
+              <div class="text-xs text-teal-200 font-semibold uppercase tracking-wider">週五 ｜ 移動放電日</div>
+              <h3 class="text-lg sm:text-xl font-bold">高雄出發 ➔ 枋寮中繼 ➔ 南迴公路 ➔ 桂田喜來登放電入住</h3>
+            </div>
+          </div>
+          <span class="badge-pill bg-teal-500/30 text-teal-100 border border-teal-300/30 text-xs">
+            <i class="fa-solid fa-car-side mr-1"></i>自駕約 160 公里
+          </span>
+        </div>
+
+        <div class="p-5 sm:p-6 space-y-6">
+          <!-- Timeline Items -->
+          <div class="relative border-l-2 border-teal-200 ml-4 sm:ml-6 pl-4 sm:pl-6 space-y-6">
+            <!-- 12:00 -->
+            <div class="relative">
+              <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-teal-600 border-4 border-white shadow-xs"></div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold px-2 py-0.5 rounded bg-teal-100 text-teal-800">12:00</span>
+                  <span class="text-xs text-slate-500">高雄家中</span>
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm sm:text-base mt-1">全家午餐 ＆ 換好乾淨尿布</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  在熟悉的家中讓 19 個月小女兒吃飽午餐、喝適量溫水，換上全新的透氣尿布與舒適車用衣物，做好上車長睡充電準備。
+                </p>
+              </div>
+            </div>
+
+            <!-- 13:00 -->
+            <div class="relative">
+              <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-teal-600 border-4 border-white shadow-xs"></div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold px-2 py-0.5 rounded bg-teal-100 text-teal-800">13:00</span>
+                  <span class="text-xs text-teal-700 font-semibold"><i class="fa-solid fa-moon mr-1"></i>對齊寶寶午睡</span>
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm sm:text-base mt-1">從高雄出發啟程（經國道接台 1 線）</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  精準把握 13:00 午睡時鐘出發，汽車引擎輕微共振成為天然白噪音，小女兒在後座安全汽座上舒適熟睡 1.5~2 小時。
+                </p>
+              </div>
+            </div>
+
+            <!-- 14:15 -->
+            <div class="relative">
+              <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow-xs"></div>
+              <div class="bg-amber-50/60 rounded-xl p-4 border border-amber-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-800">14:15</span>
+                  <span class="text-xs text-amber-800 font-semibold"><i class="fa-solid fa-restroom mr-1"></i>中繼關鍵站</span>
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm sm:text-base mt-1">枋寮休息中繼站（洗手間、換尿布、舒展身軀）</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  在正式進入南迴公路（台9線草埔森永隧道）前先停靠枋寮。南迴山區與沿海休息點有限，先停下換尿布、讓寶寶喝水清醒，爸爸喝杯熱咖啡提神。
+                </p>
+                <div class="mt-2 flex gap-2">
+                  <a href="https://www.google.com/maps/search/?api=1&query=屏東枋寮7-11或全家休息站" target="_blank" class="text-xs text-teal-700 hover:underline font-medium inline-flex items-center gap-1">
+                    <i class="fa-solid fa-location-arrow"></i> Google 地圖導航至枋寮休息站
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 16:00 -->
+            <div class="relative">
+              <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-teal-600 border-4 border-white shadow-xs"></div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold px-2 py-0.5 rounded bg-teal-100 text-teal-800">16:00</span>
+                  <span class="text-xs text-teal-700 font-semibold"><i class="fa-solid fa-hotel mr-1"></i>主選入住</span>
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm sm:text-base mt-1">抵達台東市區 ‧ 入住台東桂田喜來登酒店</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  辦理入住並卸下行李。直奔 3F 兒童遊戲室（配有彩色球池、幼兒爬行軟墊與賽車區），讓坐車數小時的 19M 小女兒徹底放電伸展。
+                </p>
+                <div class="mt-2 text-xs text-slate-500">
+                  <span class="font-semibold text-slate-700">嬰兒備品領取確認：</span>預約之嬰兒床、紫外線消毒鍋、小澡盆與水杓已妥善備於房內。
+                </div>
+              </div>
+            </div>
+
+            <!-- 17:30 -->
+            <div class="relative">
+              <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-teal-600 border-4 border-white shadow-xs"></div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold px-2 py-0.5 rounded bg-teal-100 text-teal-800">17:30</span>
+                  <span class="text-xs text-slate-500">親子友善晚餐</span>
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm sm:text-base mt-1">台東市區清爽家庭晚餐（不出遠門）</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  在飯店 1F 阿力海百匯自助餐廳，或步行至鄰近正氣路優質家庭餐廳。點用清蒸鮮魚、原味豆腐蔬菜、白米飯，為寶寶剪碎餵食，零趕路負擔。
+                </p>
+                <div class="mt-2 p-2.5 rounded-lg bg-rose-50 border border-rose-100 text-rose-800 text-xs">
+                  <i class="fa-solid fa-volume-xmark mr-1"></i><strong>避雷提醒：</strong>鐵花村週末夜間有戶外 Live 表演與嘈雜人潮，低頻音量不適合 19M 幼兒，第一晚不出遠門，飯後即回飯店享受親子共讀。
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY 2 CARD -->
+      <div id="day2" class="day-card bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <div class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-5 sm:p-6 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center font-black text-lg">
+              D2
+            </div>
+            <div>
+              <div class="text-xs text-blue-200 font-semibold uppercase tracking-wider">週六 ｜ 文化啟蒙與放電</div>
+              <h3 class="text-lg sm:text-xl font-bold">史前文化博物館 ➔ 市區午餐 ➔ 飯店午睡 ➔ 卑南大草坪放電</h3>
+            </div>
+          </div>
+          <span class="badge-pill bg-blue-500/30 text-blue-100 border border-blue-300/30 text-xs">
+            <i class="fa-solid fa-baby mr-1"></i>全日無障礙推車
+          </span>
+        </div>
+
+        <div class="p-5 sm:p-6 space-y-6">
+          <div class="relative border-l-2 border-blue-200 ml-4 sm:ml-6 pl-4 sm:pl-6 space-y-6">
+            <!-- 08:30 -->
+            <div class="relative">
+              <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-xs"></div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800">08:30</span>
+                  <span class="text-xs text-slate-500">飯店早餐</span>
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm sm:text-base mt-1">桂田喜來登豐盛自助早餐</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  提供現煮溫熱白粥、蒸地瓜、無刺鮮魚片與現煎純蛋捲，是 19M 寶寶優質的原型食物營養來源。
+                </p>
+              </div>
+            </div>
+
+            <!-- 09:30-11:30 -->
+            <div class="relative">
+              <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-xs"></div>
+              <div class="bg-blue-50/70 rounded-xl p-4 border border-blue-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800">09:30 - 11:30</span>
+                  <span class="text-xs text-blue-700 font-semibold"><i class="fa-solid fa-landmark mr-1"></i>核心景點 (室內)</span>
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm sm:text-base mt-1">國立臺灣史前文化博物館（康樂本館）</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  經數年大幅升級改建後的國家級博物館。擁有頂級中央空調、全館寬敞無障礙坡道推車極其順暢、高規格五星育嬰哺乳室，以及全新設計的「探索館」。多媒體光影與原住民族色彩極具視覺吸引力，零風吹日曬。
+                </p>
+                <div class="mt-2 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded bg-white text-blue-800 border border-blue-200"><i class="fa-solid fa-temperature-arrow-down text-blue-500 mr-1"></i>全冷氣避風</span>
+                  <span class="px-2 py-1 rounded bg-white text-blue-800 border border-blue-200"><i class="fa-solid fa-wheelchair text-blue-500 mr-1"></i>推車友善</span>
+                  <span class="px-2 py-1 rounded bg-white text-blue-800 border border-blue-200"><i class="fa-solid fa-person-breastfeeding text-blue-500 mr-1"></i>獨立哺乳室</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 11:45 -->
+            <div class="relative">
+              <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-xs"></div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800">11:45</span>
+                  <span class="text-xs text-slate-500">市區午餐</span>
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm sm:text-base mt-1">台東市區高評價親子友善午餐</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  自史前館驅車約 10 分鐘回到市區。精選設有兒童安全高腳椅、乾淨洗手間且 Google 評分 4.2 星以上之優質餐廳，避開油膩小吃，安心用餐。
+                </p>
+              </div>
+            </div>
+
+            <!-- 13:00-15:30 -->
+            <div class="relative">
+              <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-emerald-500 border-4 border-white shadow-xs"></div>
+              <div class="bg-emerald-50/70 rounded-xl p-4 border border-emerald-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">13:00 - 15:30</span>
+                  <span class="text-xs text-emerald-700 font-bold"><i class="fa-solid fa-shield-halved mr-1"></i>大衛旅行鐵律</span>
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm sm:text-base mt-1">回飯店客房午睡休息（不可壓縮）</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  午餐後立刻返回桂田喜來登。關暗窗簾、拉上遮光布，讓 19M 小女兒在熟悉的嬰兒床上熟睡充電 2.5 小時；父母也能躺在五星級大床上午休，徹底告別疲累行軍式旅遊。
+                </p>
+              </div>
+            </div>
+
+            <!-- 15:45-16:45 -->
+            <div class="relative">
+              <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-xs"></div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800">15:45 - 16:45</span>
+                  <span class="text-xs text-slate-500">戶外平坦放電</span>
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm sm:text-base mt-1">卑南遺址公園（廣闊大草坪 ＆ 緩坡散步）</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  睡飽精神飽滿出門！卑南遺址公園擁有全台東最平整綠草坡與無階梯步道。推著推車漫步或牽著寶寶小手踩草皮，感受初秋微風與中央山脈壯麗景致。
+                </p>
+                <div class="mt-2 text-xs text-slate-500">
+                  <i class="fa-solid fa-shuffle text-indigo-500 mr-1"></i><strong>彈性備選：</strong>亦可改往「臺東森林公園（活水湖旁純推車平路）」。
+                </div>
+              </div>
+            </div>
+
+            <!-- 17:30 -->
+            <div class="relative">
+              <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-xs"></div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800">17:30</span>
+                  <span class="text-xs text-slate-500">晚餐時光</span>
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm sm:text-base mt-1">市區慢嚐在地美味 ＆ 溫馨早睡</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  日落前（約 17:15）回到市區，享用健康清爽的晚餐。餐後回飯店洗熱水澡、享受房內美人湯設施，20:30 全家放鬆入眠。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY 3 CARD -->
+      <div id="day3" class="day-card bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <div class="bg-gradient-to-r from-cyan-700 to-teal-800 text-white p-5 sm:p-6 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center font-black text-lg">
+              D3
+            </div>
+            <div>
+              <div class="text-xs text-cyan-200 font-semibold uppercase tracking-wider">週日 ｜ 太平洋迎風與返程</div>
+              <h3 class="text-lg sm:text-xl font-bold">加路蘭地景藝術 ➔ 悠閒退房 ➔ 午餐 ➔ 車上午睡順利返高</h3>
+            </div>
+          </div>
+          <span class="badge-pill bg-cyan-500/30 text-cyan-100 border border-cyan-300/30 text-xs">
+            <i class="fa-solid fa-water mr-1"></i>太平洋絕美海岸
+          </span>
+        </div>
+
+        <div class="p-5 sm:p-6 space-y-6">
+          <div class="relative border-l-2 border-cyan-200 ml-4 sm:ml-6 pl-4 sm:pl-6 space-y-6">
+            <!-- 08:30 -->
+            <div class="relative">
+              <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-cyan-600 border-4 border-white shadow-xs"></div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold px-2 py-0.5 rounded bg-cyan-100 text-cyan-800">08:30</span>
+                  <span class="text-xs text-slate-500">晨光晨食</span>
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm sm:text-base mt-1">享用飯店早餐、收拾行李</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  享用現蒸有機南瓜、溫豆漿與水煮蛋，整理行李箱，準備上午的看海微風行程。
+                </p>
+              </div>
+            </div>
+
+            <!-- 09:30-10:45 -->
+            <div class="relative">
+              <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-cyan-600 border-4 border-white shadow-xs"></div>
+              <div class="bg-cyan-50/70 rounded-xl p-4 border border-cyan-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold px-2 py-0.5 rounded bg-cyan-100 text-cyan-800">09:30 - 10:45</span>
+                  <span class="text-xs text-cyan-800 font-semibold"><i class="fa-solid fa-camera mr-1"></i>海天一線美拍</span>
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm sm:text-base mt-1">加路蘭海岸遊憩區（太平洋海天一線與裝置藝術）</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  從市區向北開車僅約 15 分鐘即可抵達。擁有平緩好走的木棧道與開闊草坪，近距離眺望都蘭鼻與湛藍太平洋。
+                </p>
+                <div class="mt-2 p-2.5 rounded-lg bg-cyan-100/60 text-cyan-900 text-xs flex items-center gap-2">
+                  <i class="fa-solid fa-wind text-cyan-700"></i>
+                  <span><strong>穿著配備注意：</strong>加路蘭濱海海風較大，務必為 19M 寶寶穿戴連帽防風外套，拍完漂亮全家福即可舒適散步。</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 11:00 -->
+            <div class="relative">
+              <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-cyan-600 border-4 border-white shadow-xs"></div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold px-2 py-0.5 rounded bg-cyan-100 text-cyan-800">11:00</span>
+                  <span class="text-xs text-slate-500">辦理退房</span>
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm sm:text-base mt-1">桂田喜來登辦理退房 ＆ 行李上車</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  退房結帳，將大件行李與推車妥善安放於後車廂。
+                </p>
+              </div>
+            </div>
+
+            <!-- 11:30 -->
+            <div class="relative">
+              <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-cyan-600 border-4 border-white shadow-xs"></div>
+              <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold px-2 py-0.5 rounded bg-cyan-100 text-cyan-800">11:30</span>
+                  <span class="text-xs text-slate-500">返程前午餐</span>
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm sm:text-base mt-1">市區悠閒午餐 ＆ 出發前換好尿布</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  享用美味午餐，讓寶寶喝溫水並於餐廳或飯店大廳換好全新乾爽尿布，為即將到來的南迴公路做好萬全準備。
+                </p>
+              </div>
+            </div>
+
+            <!-- 12:45 -->
+            <div class="relative">
+              <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-emerald-500 border-4 border-white shadow-xs"></div>
+              <div class="bg-emerald-50/70 rounded-xl p-4 border border-emerald-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">12:45 / 13:00</span>
+                  <span class="text-xs text-emerald-700 font-bold"><i class="fa-solid fa-moon mr-1"></i>對齊寶寶午睡</span>
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm sm:text-base mt-1">從台東啟程返回高雄（南迴公路接國道）</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  精準對齊 13:00 午睡黃金時間出發。小女兒於汽座上熟睡 2.5~3 小時，爸爸平穩駕駛南迴改與草埔隧道，約 16:00 平安抵達高雄家園，全家無疲憊感，圓滿收假！
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rain Backup Plan Card -->
+      <div class="bg-gradient-to-br from-slate-100 to-slate-200/70 rounded-2xl p-6 border border-slate-300">
+        <h4 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+          <i class="fa-solid fa-cloud-rain text-cyan-600"></i> 雨天與強風靈活備案 (Rainy Day Fallback)
+        </h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-3 text-xs sm:text-sm text-slate-700">
+          <div class="bg-white p-4 rounded-xl border border-slate-200">
+            <strong class="text-slate-900 block mb-1">備案 A：史前館探索館延長</strong>
+            若 Day 2 下午降雨，不前往卑南大草坪，留在史前文化博物館探索館與圖書空間暢玩，室內溫暖舒適。
+          </div>
+          <div class="bg-white p-4 rounded-xl border border-slate-200">
+            <strong class="text-slate-900 block mb-1">備案 B：桂田喜來登兒童遊戲室</strong>
+            飯店 3F 兒童賽車與球池設施完備，隨時可讓寶寶在室內安全爬行放電。
+          </div>
+          <div class="bg-white p-4 rounded-xl border border-slate-200">
+            <strong class="text-slate-900 block mb-1">備案 C：加路蘭改走美術館園區</strong>
+            若 Day 3 海風過大，將加路蘭改為台東美術館戶外木棧道與大樹草坪散步，避開強風海線。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Hotel Deep Dive Section -->
+    <section id="hotel-section" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+      <div class="border-b border-slate-100 pb-4">
+        <span class="badge-pill bg-purple-100 text-purple-800 text-xs"><i class="fa-solid fa-hotel mr-1.5"></i>兩晚同宿一間</span>
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mt-2">五星住宿深度評估：首選與備選全對比</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">免搬行李 ‧ 避免孩子適應新環境 ‧ 緊鄰台東醫學急診核心圈</p>
+      </div>
+
+      <!-- Hotel Cards Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Main Hotel: Sheraton Taitung -->
+        <div class="rounded-2xl border-2 border-teal-500 overflow-hidden shadow-md flex flex-col justify-between">
+          <div>
+            <div class="bg-teal-600 text-white px-5 py-3 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-crown text-amber-300"></i>
+                <span class="font-bold text-sm sm:text-base">主選推薦：台東桂田喜來登酒店</span>
+              </div>
+              <span class="badge-pill bg-teal-800 text-white text-xs">台東市中心五星</span>
+            </div>
+            <div class="p-5 space-y-4">
+              <div class="flex items-center justify-between text-xs text-slate-500 border-b border-slate-100 pb-2">
+                <span><i class="fa-solid fa-location-dot text-teal-600 mr-1"></i>台東市正氣路 316 號</span>
+                <span class="font-bold text-teal-700"><i class="fa-solid fa-hospital mr-1"></i>距馬偕醫院僅 4 分鐘</span>
+              </div>
+              
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                台東市區首屈一指的國際連鎖五星酒店。最大優勢在於<strong>「極佳的地理與醫療安全位置」</strong>，距台東馬偕醫院急診僅 1.2 公里，幼兒有任何緊急狀況 4 分鐘內直達。
+              </p>
+
+              <!-- Facilities list -->
+              <div class="space-y-2 text-xs text-slate-700 bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                <div class="font-semibold text-slate-900"><i class="fa-solid fa-circle-check text-teal-600 mr-1"></i>幼兒與家庭專屬亮點：</div>
+                <ul class="space-y-1.5 list-disc list-inside text-slate-600">
+                  <li>3F 兒童放電遊戲室（球池、軟墊障礙、電動賽車）</li>
+                  <li>全套預約制嬰幼兒備品（嬰兒床、紫外線消毒鍋、澡盆水杓）</li>
+                  <li>阿力海百匯全日餐廳（供應綿密白粥、鮮魚、蒸蛋）</li>
+                  <li>飯店周邊平坦，推車出門步行即達優質餐廳與藥局</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <div class="p-3 rounded-lg bg-teal-50 border border-teal-200 text-teal-900 text-xs font-medium flex items-center justify-between">
+              <span>評估結論：全方位最高分（安全、放電、醫療首選）</span>
+              <span class="font-bold text-teal-700">通過檢驗</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alternate Hotel: Hotel Royal Chihpen -->
+        <div class="rounded-2xl border border-slate-300 overflow-hidden shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="bg-slate-700 text-white px-5 py-3 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-star text-amber-300"></i>
+                <span class="font-bold text-sm sm:text-base">備選考量：知本老爺酒店</span>
+              </div>
+              <span class="badge-pill bg-slate-800 text-white text-xs">知本溫泉區</span>
+            </div>
+            <div class="p-5 space-y-4">
+              <div class="flex items-center justify-between text-xs text-slate-500 border-b border-slate-100 pb-2">
+                <span><i class="fa-solid fa-location-dot text-slate-600 mr-1"></i>卑南鄉溫泉村龍泉路 113 巷 23 號</span>
+                <span class="font-medium text-amber-600"><i class="fa-solid fa-hospital mr-1"></i>距市區醫院約 20~25 分鐘</span>
+              </div>
+              
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                2026 年 10 月甫完成全面改裝煥新。新設 <strong>Malinayan 遊戲屋</strong>（室內攀岩斜坡、滑梯與圖書角）與戶外戲沙池，環境清幽度假感強。
+              </p>
+
+              <!-- Facilities list -->
+              <div class="space-y-2 text-xs text-slate-700 bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                <div class="font-semibold text-slate-900"><i class="fa-solid fa-circle-info text-amber-600 mr-1"></i>特性與注意事項：</div>
+                <ul class="space-y-1.5 list-disc list-inside text-slate-600">
+                  <li>全新 Malinayan 兒童遊樂空間品質優異</li>
+                  <li>天然碳酸氫鈉泉（19M 寶寶不宜高溫浸泡，主要供父母輪流放鬆）</li>
+                  <li>山區道路夜間視線較暗，前往市區就醫車程需 20~25 分鐘</li>
+                  <li>若改選知本老爺，行程應調整為停留知本園區為主</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <div class="p-3 rounded-lg bg-amber-50 border border-amber-200 text-amber-900 text-xs font-medium flex items-center justify-between">
+              <span>評估結論：休閒感佳，惟醫療車程稍遠且溫泉幼兒不宜</span>
+              <span class="font-bold text-amber-700">有條件候選</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exclusion Analysis -->
+      <div class="bg-slate-50 p-4 sm:p-5 rounded-xl border border-slate-200 text-xs sm:text-sm space-y-2">
+        <strong class="text-slate-900 font-bold block">景點與住宿排除原因分析 (Why Excluded)：</strong>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-slate-600 text-xs">
+          <div class="p-2.5 rounded-lg bg-white border border-slate-200">
+            <strong class="text-rose-600 block mb-0.5">✕ 鹿野高台</strong>
+            11 月非熱氣球季，且距離台東市區醫院車程逾 35 分鐘，觸碰 30 分鐘醫療警戒線。
+          </div>
+          <div class="p-2.5 rounded-lg bg-white border border-slate-200">
+            <strong class="text-rose-600 block mb-0.5">✕ 池上伯朗大道騎單車</strong>
+            19M 寶寶脊椎尚未完全適合單車兒童座椅顛簸，且池上距高雄單程過長，路途太累。
+          </div>
+          <div class="p-2.5 rounded-lg bg-white border border-slate-200">
+            <strong class="text-rose-600 block mb-0.5">✕ 池上日暉渡假村</strong>
+            高雄自駕至池上需 3.5 小時以上，距離大型綜合醫院最遠，不符合本趟「慢活且安全」宗旨。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 5-Layer Baby Care Checklist Section -->
+    <section id="baby-tips" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+      <div class="border-b border-slate-100 pb-4">
+        <span class="badge-pill bg-rose-100 text-rose-800 text-xs"><i class="fa-solid fa-shield-heart mr-1.5"></i>安全最高防線</span>
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mt-2">五道嬰幼兒安全關卡嚴格檢核</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">為 19 個月大女兒量身把關：推車無障礙、哺乳設施、醫療可及、低噪音環境與年齡適配</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-xs sm:text-sm">
+        <!-- Gate 1 -->
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-teal-100 text-teal-800 flex items-center justify-center font-bold mb-2">1</div>
+            <h4 class="font-bold text-slate-900 mb-1">推車無障礙動線</h4>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              全行程史前館、卑南大草坪、加路蘭及桂田酒店均具平坦電梯或無階梯斜坡，推車率 95% 以上。
+            </p>
+          </div>
+          <div class="mt-3 text-teal-700 font-bold text-[11px]"><i class="fa-solid fa-check mr-1"></i>全數通過</div>
+        </div>
+
+        <!-- Gate 2 -->
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-teal-100 text-teal-800 flex items-center justify-center font-bold mb-2">2</div>
+            <h4 class="font-bold text-slate-900 mb-1">獨立哺集乳室</h4>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              史前館設有五星獨立育嬰室（冷熱開水、尿布台、沙發）；桂田酒店房內備有消毒鍋與溫奶設備。
+            </p>
+          </div>
+          <div class="mt-3 text-teal-700 font-bold text-[11px]"><i class="fa-solid fa-check mr-1"></i>全數通過</div>
+        </div>
+
+        <!-- Gate 3 -->
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-teal-100 text-teal-800 flex items-center justify-center font-bold mb-2">3</div>
+            <h4 class="font-bold text-slate-900 mb-1">醫療急診 &lt;15分</h4>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              住宿與核心景點皆在台東市區，車程距台東馬偕與基督教醫院僅 4~12 分鐘，醫療防護網滴水不漏。
+            </p>
+          </div>
+          <div class="mt-3 text-teal-700 font-bold text-[11px]"><i class="fa-solid fa-check mr-1"></i>極高安全</div>
+        </div>
+
+        <!-- Gate 4 -->
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-teal-100 text-teal-800 flex items-center justify-center font-bold mb-2">4</div>
+            <h4 class="font-bold text-slate-900 mb-1">人潮噪音防護</h4>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              果斷排除鐵花村夜間喧嘩樂團與人擠人夜市，白天景點開闊綠意，給予寶寶低敏舒適的聽覺環境。
+            </p>
+          </div>
+          <div class="mt-3 text-teal-700 font-bold text-[11px]"><i class="fa-solid fa-check mr-1"></i>靜謐舒適</div>
+        </div>
+
+        <!-- Gate 5 -->
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-teal-100 text-teal-800 flex items-center justify-center font-bold mb-2">5</div>
+            <h4 class="font-bold text-slate-900 mb-1">19M 幼兒適配度</h4>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              對齊下午 13:00 汽座午睡、每日返回飯店客房深層午睡 2.5 小時，全原型軟食配菜，不積累幼兒疲憊。
+            </p>
+          </div>
+          <div class="mt-3 text-teal-700 font-bold text-[11px]"><i class="fa-solid fa-check mr-1"></i>100% 貼合</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Interactive Packing Checklist Section -->
+    <section id="checklist-section" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+        <div>
+          <span class="badge-pill bg-amber-100 text-amber-800 text-xs"><i class="fa-solid fa-suitcase mr-1.5"></i>行前打包</span>
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mt-2">19 個月幼兒 ＆ 家庭互動打包清單</h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">勾選自動記憶於本機瀏覽器，出門前再次核對無缺漏</p>
+        </div>
+        <button onclick="resetChecklist()" class="text-xs text-slate-500 hover:text-rose-600 font-medium py-1 px-3 border border-slate-200 rounded-lg hover:border-rose-200 self-start sm:self-auto transition">
+          <i class="fa-solid fa-arrow-rotate-left mr-1"></i>重設清單
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs sm:text-sm">
+        <!-- Group 1: Medical & ID -->
+        <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <h4 class="font-bold text-slate-900 flex items-center gap-1.5">
+            <i class="fa-solid fa-kit-medical text-rose-500"></i> 健保證件與常備急救
+          </h4>
+          <div class="space-y-2">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="chk_1" onchange="saveChecklist()" class="w-4 h-4 rounded text-teal-600 focus:ring-teal-500">
+              <span class="text-slate-700">全家身分證件 ＆ 寶寶健保卡</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="chk_2" onchange="saveChecklist()" class="w-4 h-4 rounded text-teal-600 focus:ring-teal-500">
+              <span class="text-slate-700">小兒常備退燒藥水、退熱貼</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="chk_3" onchange="saveChecklist()" class="w-4 h-4 rounded text-teal-600 focus:ring-teal-500">
+              <span class="text-slate-700">耳溫槍、防蚊液、止癢消炎膏</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="chk_4" onchange="saveChecklist()" class="w-4 h-4 rounded text-teal-600 focus:ring-teal-500">
+              <span class="text-slate-700">幼童物理性防曬乳液</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Group 2: Feeding & Dining -->
+        <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <h4 class="font-bold text-slate-900 flex items-center gap-1.5">
+            <i class="fa-solid fa-bowl-food text-amber-500"></i> 副食品與餵食餐具
+          </h4>
+          <div class="space-y-2">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="chk_5" onchange="saveChecklist()" class="w-4 h-4 rounded text-teal-600 focus:ring-teal-500">
+              <span class="text-slate-700">常溫寶寶副食品調理包 (3~4包備用)</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="chk_6" onchange="saveChecklist()" class="w-4 h-4 rounded text-teal-600 focus:ring-teal-500">
+              <span class="text-slate-700">幼兒不銹鋼食物剪刀、專用矽膠匙</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="chk_7" onchange="saveChecklist()" class="w-4 h-4 rounded text-teal-600 focus:ring-teal-500">
+              <span class="text-slate-700">防漏吸管水壺、奶粉分裝盒、奶瓶</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="chk_8" onchange="saveChecklist()" class="w-4 h-4 rounded text-teal-600 focus:ring-teal-500">
+              <span class="text-slate-700">拋棄式防水圍兜、矽膠保鮮碗</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Group 3: Clothing & Gear -->
+        <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <h4 class="font-bold text-slate-900 flex items-center gap-1.5">
+            <i class="fa-solid fa-vest text-cyan-600"></i> 衣物、防風與車用安撫
+          </h4>
+          <div class="space-y-2">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="chk_9" onchange="saveChecklist()" class="w-4 h-4 rounded text-teal-600 focus:ring-teal-500">
+              <span class="text-slate-700">海邊防風連帽外套、遮陽漁夫帽</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="chk_10" onchange="saveChecklist()" class="w-4 h-4 rounded text-teal-600 focus:ring-teal-500">
+              <span class="text-slate-700">更換衣物 4~5 套 (含多備襪子)</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="chk_11" onchange="saveChecklist()" class="w-4 h-4 rounded text-teal-600 focus:ring-teal-500">
+              <span class="text-slate-700">輕量好收折嬰兒推車 ＋ 防風雨罩</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="chk_12" onchange="saveChecklist()" class="w-4 h-4 rounded text-teal-600 focus:ring-teal-500">
+              <span class="text-slate-700">寶寶安撫玩偶/安撫巾、車用遮陽簾</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Interactive Leaflet Map Section -->
+    <section id="map-section" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+        <div>
+          <span class="badge-pill bg-indigo-100 text-indigo-800 text-xs"><i class="fa-solid fa-map-location-dot mr-1.5"></i>GPS 導航地圖</span>
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mt-2">台東慢旅景點 ＆ 醫療急診互聯地圖</h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">點擊地標即刻查看景點特色、幼兒友善等級與 Google 地圖一鍵導航</p>
+        </div>
+        <!-- Legend -->
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-teal-100 text-teal-800"><i class="fa-solid fa-location-dot text-teal-600"></i>行程景點</span>
+          <span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-100 text-blue-800"><i class="fa-solid fa-hotel text-blue-600"></i>下榻五星</span>
+          <span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-rose-100 text-rose-800"><i class="fa-solid fa-hospital text-rose-600"></i>急診醫學</span>
+          <span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-amber-100 text-amber-800"><i class="fa-solid fa-mug-hot text-amber-600"></i>中繼休憩</span>
+        </div>
+      </div>
+
+      <!-- Map Container -->
+      <div id="map" class="shadow-inner border border-slate-200"></div>
+
+      <!-- Quick Navigation External Links -->
+      <div class="pt-2">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Google 地圖一鍵直達導航路線：</h4>
+        <div class="flex flex-wrap gap-2 text-xs">
+          <a href="https://www.google.com/maps/dir/?api=1&origin=高雄市&destination=台東桂田喜來登酒店&waypoints=枋寮休息站" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-teal-50 hover:text-teal-700 text-slate-700 font-medium border border-slate-200 transition">
+            <i class="fa-solid fa-route text-teal-600 mr-1"></i>Day 1 南迴行車路線
+          </a>
+          <a href="https://www.google.com/maps/dir/?api=1&origin=台東桂田喜來登酒店&destination=國立臺灣史前文化博物館康樂本館" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-teal-50 hover:text-teal-700 text-slate-700 font-medium border border-slate-200 transition">
+            <i class="fa-solid fa-landmark text-blue-600 mr-1"></i>Day 2 史前文化博物館
+          </a>
+          <a href="https://www.google.com/maps/dir/?api=1&origin=台東桂田喜來登酒店&destination=卑南遺址公園" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-teal-50 hover:text-teal-700 text-slate-700 font-medium border border-slate-200 transition">
+            <i class="fa-solid fa-tree text-emerald-600 mr-1"></i>Day 2 卑南遺址公園大草坪
+          </a>
+          <a href="https://www.google.com/maps/dir/?api=1&origin=台東桂田喜來登酒店&destination=加路蘭海岸" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-teal-50 hover:text-teal-700 text-slate-700 font-medium border border-slate-200 transition">
+            <i class="fa-solid fa-water text-cyan-600 mr-1"></i>Day 3 加路蘭海岸遊憩區
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=台東馬偕紀念醫院急診室" target="_blank" class="px-3 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold border border-rose-200 transition">
+            <i class="fa-solid fa-hospital text-rose-600 mr-1"></i>台東馬偕醫院急診 (緊急直達)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. EXIF GPS Travel Photo Story Section -->
+    <section id="photo-story-section" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6 scroll-mt-20">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+        <div>
+          <span class="badge-pill bg-purple-100 text-purple-800 text-xs"><i class="fa-solid fa-camera-retro mr-1.5"></i>旅途足跡</span>
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mt-2">照片故事手帳 ＆ EXIF GPS 智慧對齊</h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">上傳實拍照純前端解析拍攝時間與經緯度，隱私安全無憂，自動串聯三大故事視角</p>
+        </div>
+
+        <!-- Mode Tabs -->
+        <div class="flex items-center bg-slate-200/80 p-1 rounded-xl text-xs sm:text-sm font-semibold self-start sm:self-auto">
+          <button id="tab-timeline" onclick="switchStoryMode('timeline')" class="story-tab active px-3 py-1.5 rounded-lg bg-white text-purple-700 shadow-xs transition">時光手帳</button>
+          <button id="tab-itinerary" onclick="switchStoryMode('itinerary')" class="story-tab px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition">景點足跡</button>
+          <button id="tab-people" onclick="switchStoryMode('people')" class="story-tab px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition">主角視角</button>
+        </div>
+      </div>
+
+      <!-- People Subfilter (Hidden by default, shown when people mode is active) -->
+      <div id="people-subfilters" class="hidden flex flex-wrap gap-2 text-xs">
+        <button onclick="setPersonFilter('all', this)" class="person-btn active px-3 py-1 rounded-full bg-purple-600 text-white font-semibold shadow-xs">全部主角</button>
+        <button onclick="setPersonFilter('小寶貝', this)" class="person-btn px-3 py-1 rounded-full bg-white text-purple-900 border border-purple-200 font-semibold hover:bg-purple-50">👧 19M 小寶貝</button>
+        <button onclick="setPersonFilter('爸爸', this)" class="person-btn px-3 py-1 rounded-full bg-white text-purple-900 border border-purple-200 font-semibold hover:bg-purple-50">👨 爸爸大衛</button>
+        <button onclick="setPersonFilter('媽媽', this)" class="person-btn px-3 py-1 rounded-full bg-white text-purple-900 border border-purple-200 font-semibold hover:bg-purple-50">👩 媽媽</button>
+        <button onclick="setPersonFilter('全家福', this)" class="person-btn px-3 py-1 rounded-full bg-white text-purple-900 border border-purple-200 font-semibold hover:bg-purple-50">👨‍👩‍👧 甜蜜全家福</button>
+      </div>
+
+      <!-- Narrative AI Story Box -->
+      <div class="bg-gradient-to-r from-purple-50 via-teal-50 to-slate-50 rounded-xl p-5 border border-purple-100 space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 id="narrative-title" class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-2">
+            <i class="fa-solid fa-feather-pointed text-purple-600"></i> 台東家庭慢旅行記
+          </h3>
+          <button onclick="copyStoryText()" class="text-xs font-semibold px-2.5 py-1 rounded bg-white text-purple-700 border border-purple-200 hover:bg-purple-100 transition flex items-center gap-1 shadow-xs">
+            <i class="fa-regular fa-copy"></i> <span id="copy-btn-label">複製手帳文字</span>
+          </button>
+        </div>
+        <p id="narrative-body" class="text-xs sm:text-sm text-slate-700 leading-relaxed whitespace-pre-line"></p>
+        <div id="narrative-meta" class="flex flex-wrap gap-3 text-xs text-slate-500 pt-1"></div>
+      </div>
+
+      <!-- Photo Upload & Controls -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl bg-slate-50 border border-slate-200">
+        <div class="flex items-center space-x-2">
+          <label class="cursor-pointer px-3.5 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 text-white font-semibold text-xs sm:text-sm transition flex items-center gap-1.5 shadow-sm">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <span>上傳實拍照 (支援 EXIF GPS)</span>
+            <input type="file" multiple accept="image/*" onchange="handlePhotoUpload(event)" class="hidden">
+          </label>
+          <button onclick="loadDemoPhotos()" class="px-3 py-2 rounded-lg bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-medium text-xs sm:text-sm transition">
+            重載示範美照
+          </button>
+          <button onclick="clearAllPhotos()" class="px-2.5 py-2 rounded-lg text-slate-400 hover:text-rose-600 text-xs sm:text-sm transition" title="清空全部照片">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </div>
+        <div id="photo-counter-info" class="text-xs text-slate-500 font-medium"></div>
+      </div>
+
+      <!-- Uploading Indicator -->
+      <div id="upload-status" class="hidden p-3 rounded-lg bg-purple-50 text-purple-800 text-xs font-semibold animate-pulse flex items-center gap-2">
+        <i class="fa-solid fa-spinner fa-spin"></i> 正在解析照片 EXIF GPS 與拍攝時間，請稍候...
+      </div>
+
+      <!-- Dynamic Photo Display Container -->
+      <div id="photos-display-container"></div>
+    </section>
+
+  </main>
+
+  <!-- Emergency Contacts Modal -->
+  <div id="emergency-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <div class="flex items-center gap-2 text-rose-600 font-bold text-lg">
+          <i class="fa-solid fa-truck-medical text-xl"></i>
+          台東緊急醫療 ＆ 住宿客服快速專線
+        </div>
+        <button onclick="toggleModal('emergency-modal')" class="text-slate-400 hover:text-slate-600 text-lg">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-slate-600 leading-relaxed">
+        台東市區設有完善急診網絡，出門前存妥以下電話，點擊即可直接撥號：
+      </p>
+
+      <div class="space-y-2.5 text-xs sm:text-sm">
+        <!-- Mackay Hospital -->
+        <a href="tel:089310150" class="flex items-center justify-between p-3 rounded-xl bg-rose-50 hover:bg-rose-100 border border-rose-200 transition">
+          <div>
+            <div class="font-bold text-rose-900">台東馬偕紀念醫院（急診室）</div>
+            <div class="text-[11px] text-rose-700">台東市長沙街 303 巷 1 號 ｜ 24H 急診專線</div>
+          </div>
+          <span class="font-bold text-rose-600 text-base"><i class="fa-solid fa-phone mr-1"></i>089-310150</span>
+        </a>
+
+        <!-- Christian Hospital -->
+        <a href="tel:089960888" class="flex items-center justify-between p-3 rounded-xl bg-rose-50 hover:bg-rose-100 border border-rose-200 transition">
+          <div>
+            <div class="font-bold text-rose-900">台東基督教醫院（急診室）</div>
+            <div class="text-[11px] text-rose-700">台東市開封街 350 號 ｜ 24H 急診專線</div>
+          </div>
+          <span class="font-bold text-rose-600 text-base"><i class="fa-solid fa-phone mr-1"></i>089-960888</span>
+        </a>
+
+        <!-- Taitung Hospital -->
+        <a href="tel:089324112" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 transition">
+          <div>
+            <div class="font-bold text-slate-800">衛生福利部臺東醫院（急診）</div>
+            <div class="text-[11px] text-slate-500">台東市五權街 1 號</div>
+          </div>
+          <span class="font-bold text-slate-700 text-base"><i class="fa-solid fa-phone mr-1"></i>089-324112</span>
+        </a>
+
+        <!-- Hotel Front Desk -->
+        <a href="tel:089328858" class="flex items-center justify-between p-3 rounded-xl bg-teal-50 hover:bg-teal-100 border border-teal-200 transition">
+          <div>
+            <div class="font-bold text-teal-900">台東桂田喜來登酒店（總機）</div>
+            <div class="text-[11px] text-teal-700">台東市正氣路 316 號 ｜ 客房備品與即時協助</div>
+          </div>
+          <span class="font-bold text-teal-700 text-base"><i class="fa-solid fa-phone mr-1"></i>089-328858</span>
+        </a>
+      </div>
+
+      <div class="pt-2 text-right">
+        <button onclick="toggleModal('emergency-modal')" class="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs">
+          關閉視窗
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-20 border-t border-slate-200 bg-white py-8 text-center text-xs text-slate-500 space-y-2">
+    <div class="flex items-center justify-center space-x-2 font-medium text-slate-700">
+      <span>大衛人生 ‧ C6.2 旅行系統</span>
+      <span>•</span>
+      <span>2026 台東家庭旅行手冊</span>
+      <span>•</span>
+      <span>大衛雲 2.0</span>
+    </div>
+    <p>嚴守「盡興且不累」原則 ｜ 守護家人與 19 個月可愛女兒的專屬慢活手帳</p>
+  </footer>
+
+  <!-- Floating Mobile Quick Dial Button -->
+  <aside class="md:hidden fixed bottom-4 right-4 z-40" aria-label="快捷醫療撥號">
+    <button onclick="toggleModal('emergency-modal')" class="w-12 h-12 rounded-full bg-rose-600 text-white shadow-lg flex items-center justify-center text-lg hover:scale-105 active:scale-95 transition-transform" aria-label="開啟緊急醫療直通電話選單">
+      <i class="fa-solid fa-phone-flip"></i>
+    </button>
+  </aside>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Mobile Drawer Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Modal Helper
+    function toggleModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) modal.classList.toggle('hidden');
+    }
+
+    // Day Filtering Logic
+    function filterDay(day) {
+      const cards = document.querySelectorAll('.day-card');
+      const btns = document.querySelectorAll('.filter-btn');
+      
+      btns.forEach(b => {
+        b.classList.remove('bg-teal-700', 'text-white', 'active');
+        b.classList.add('bg-transparent', 'text-slate-700');
+      });
+
+      const activeBtn = document.getElementById('btn-' + day);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-transparent', 'text-slate-700');
+        activeBtn.classList.add('bg-teal-700', 'text-white', 'active');
+      }
+
+      if (day === 'all') {
+        cards.forEach(c => c.classList.remove('hidden'));
+      } else {
+        cards.forEach(c => c.classList.add('hidden'));
+        const target = document.getElementById(day);
+        if (target) target.classList.remove('hidden');
+      }
+    }
+
+    // Packing Checklist LocalStorage Persistence
+    function saveChecklist() {
+      const checks = {};
+      for (let i = 1; i <= 12; i++) {
+        const el = document.getElementById('chk_' + i);
+        if (el) checks['chk_' + i] = el.checked;
+      }
+      localStorage.setItem('taitung_family_checklist', JSON.stringify(checks));
+    }
+
+    function loadChecklist() {
+      const saved = localStorage.getItem('taitung_family_checklist');
+      if (saved) {
+        try {
+          const checks = JSON.parse(saved);
+          for (let key in checks) {
+            const el = document.getElementById(key);
+            if (el) el.checked = checks[key];
+          }
+        } catch (e) {
+          console.warn("Checklist load error", e);
+        }
+      }
+    }
+
+    function resetChecklist() {
+      for (let i = 1; i <= 12; i++) {
+        const el = document.getElementById('chk_' + i);
+        if (el) el.checked = false;
+      }
+      localStorage.removeItem('taitung_family_checklist');
+    }
+
+    // ==========================================
+    // 🗺️ ITINERARY STOPS & MAP COORDINATES
+    // ==========================================
+    const ITINERARY_STOPS = [
+      { id: "origin_kh", name: "高雄出發點 (13:00 對齊午睡)", lat: 22.6273, lng: 120.3014, day: 1, type: "origin", icon: "fa-car" },
+      { id: "fangliao", name: "枋寮中繼站 (洗手間 ＆ 換尿布)", lat: 22.3686, lng: 120.5925, day: 1, type: "rest", icon: "fa-restroom" },
+      { id: "sheraton", name: "台東桂田喜來登酒店 (下榻主選)", lat: 22.7538, lng: 121.1518, day: 1, type: "hotel", icon: "fa-hotel" },
+      { id: "museum", name: "國立臺灣史前文化博物館 (康樂本館)", lat: 22.7617, lng: 121.0911, day: 2, type: "spot", icon: "fa-landmark" },
+      { id: "beinan", name: "卑南遺址公園 (廣闊大草坪散步)", lat: 22.7909, lng: 121.1215, day: 2, type: "spot", icon: "fa-tree" },
+      { id: "jialulan", name: "加路蘭海岸遊憩區 (太平洋地景藝術)", lat: 22.8086, lng: 121.1965, day: 3, type: "spot", icon: "fa-water" },
+      { id: "mackay_hosp", name: "台東馬偕紀念醫院 (急診)", lat: 22.7525, lng: 121.1448, day: 0, type: "hospital", icon: "fa-hospital" },
+      { id: "christian_hosp", name: "台東基督教醫院 (急診)", lat: 22.7592, lng: 121.1390, day: 0, type: "hospital", icon: "fa-hospital" }
+    ];
+
+    // ==========================================
+    // 📸 PHOTO STORY DATA (DEMO & USER)
+    // ==========================================
+    const DEMO_PHOTOS = [
+      {
+        id: "demo_1",
+        title: "台東桂田喜來登 ‧ 舒適大廳與放電遊戲室",
+        imgUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80",
+        lat: 22.7538,
+        lng: 121.1518,
+        dateTaken: "2026-11-06T16:30:00",
+        spotId: "sheraton",
+        spotName: "台東桂田喜來登酒店",
+        tags: ["小寶貝", "全家福", "爸爸"],
+        caption: "順利抵達台東市區！辦理入住後直奔 3F 兒童遊戲室，19M 小女兒開心地在球池與軟墊賽車區爬行放電，洗滌車程疲憊。"
+      },
+      {
+        id: "demo_2",
+        title: "國立臺灣史前文化博物館 ‧ 探索館啟蒙",
+        imgUrl: "https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&w=1000&q=80",
+        lat: 22.7617,
+        lng: 121.0911,
+        dateTaken: "2026-11-07T10:15:00",
+        spotId: "museum",
+        spotName: "國立臺灣史前文化博物館 (康樂本館)",
+        tags: ["小寶貝", "媽媽", "全家福"],
+        caption: "全館空調極為涼爽舒適，無障礙推車坡道好順暢！小女兒在探索館的大型原民色彩圖騰前睜大眼睛好奇指指點點，媽媽溫柔解說。"
+      },
+      {
+        id: "demo_3",
+        title: "卑南遺址公園 ‧ 廣闊綠茵大草坪牽手散步",
+        imgUrl: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80",
+        lat: 22.7909,
+        lng: 121.1215,
+        dateTaken: "2026-11-07T16:10:00",
+        spotId: "beinan",
+        spotName: "卑南遺址公園",
+        tags: ["小寶貝", "爸爸", "全家福"],
+        caption: "飯店深層午睡 2.5 小時後精神超好！來到卑南大草坪，爸爸牽著小女兒軟萌的小腳步慢走踩草皮，初秋山嵐微風無比愜意。"
+      },
+      {
+        id: "demo_4",
+        title: "加路蘭海岸 ‧ 太平洋浩瀚海天與地景藝術",
+        imgUrl: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80",
+        lat: 22.8086,
+        lng: 121.1965,
+        dateTaken: "2026-11-08T10:00:00",
+        spotId: "jialulan",
+        spotName: "加路蘭海岸遊憩區",
+        tags: ["全家福", "媽媽", "爸爸", "小寶貝"],
+        caption: "無敵的太平洋蔚藍海水與漂流木藝術！幫寶寶穿好防風連帽外套，在海風輕拂下拍下這趟旅行最美、最難忘的全家福合影。"
+      },
+      {
+        id: "demo_5",
+        title: "南迴景觀公路 ‧ 湛藍海岸兜風與熟睡小天使",
+        imgUrl: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1000&q=80",
+        lat: 22.3686,
+        lng: 120.5925,
+        dateTaken: "2026-11-08T13:30:00",
+        spotId: "fangliao",
+        spotName: "南迴景觀公路",
+        tags: ["小寶貝", "爸爸"],
+        caption: "精準把握 13:00 午睡時鐘出發，南迴公路壯闊海景伴隨平穩節奏，後座小女兒安穩入睡，爸爸專注平順駕駛，完美返程！"
+      }
+    ];
+
+    let userPhotos = [];
+    let currentStoryMode = 'timeline';
+    let currentPersonFilter = 'all';
+
+    function getActivePhotos() {
+      return userPhotos.length > 0 ? userPhotos : DEMO_PHOTOS;
+    }
+
+    function switchStoryMode(mode) {
+      currentStoryMode = mode;
+      document.querySelectorAll('.story-tab').forEach(b => {
+        b.classList.remove('active', 'bg-white', 'text-purple-700', 'shadow-xs');
+        b.classList.add('text-slate-600');
+      });
+      const activeBtn = document.getElementById('tab-' + mode);
+      if (activeBtn) {
+        activeBtn.classList.remove('text-slate-600');
+        activeBtn.classList.add('active', 'bg-white', 'text-purple-700', 'shadow-xs');
+      }
+
+      const peopleSub = document.getElementById('people-subfilters');
+      if (mode === 'people') {
+        peopleSub.classList.remove('hidden');
+      } else {
+        peopleSub.classList.add('hidden');
+      }
+
+      renderPhotoStory();
+    }
+
+    function setPersonFilter(person, btn) {
+      currentPersonFilter = person;
+      document.querySelectorAll('.person-btn').forEach(b => {
+        b.classList.remove('active', 'bg-purple-600', 'text-white', 'shadow-xs');
+        b.classList.add('bg-white', 'text-purple-900');
+      });
+      btn.classList.remove('bg-white', 'text-purple-900');
+      btn.classList.add('active', 'bg-purple-600', 'text-white', 'shadow-xs');
+
+      renderPhotoStory();
+    }
+
+    function renderPhotoStory() {
+      const photos = getActivePhotos();
+      const container = document.getElementById('photos-display-container');
+      const counter = document.getElementById('photo-counter-info');
+      const isDemo = userPhotos.length === 0;
+
+      counter.innerHTML = isDemo 
+        ? `<span class="text-amber-600 font-semibold"><i class="fa-solid fa-wand-magic-sparkles mr-1"></i>目前顯示 ${photos.length} 張台東示範手帳照片</span>`
+        : `<span class="text-purple-600 font-bold"><i class="fa-solid fa-camera mr-1"></i>已載入 ${photos.length} 張實拍相片 (EXIF GPS 自動對齊)</span>`;
+
+      updateNarrativeStory(photos);
+
+      if (currentStoryMode === 'timeline') {
+        renderTimelineView(photos, container);
+      } else if (currentStoryMode === 'itinerary') {
+        renderItineraryView(photos, container);
+      } else if (currentStoryMode === 'people') {
+        renderPeopleView(photos, container);
+      }
+    }
+
+    function updateNarrativeStory(photos) {
+      const titleElem = document.getElementById('narrative-title');
+      const bodyElem = document.getElementById('narrative-body');
+      const metaElem = document.getElementById('narrative-meta');
+
+      if (currentStoryMode === 'timeline') {
+        titleElem.textContent = "📖 2026 台東家庭慢旅時光手帳：三日悠然回顧";
+        bodyElem.textContent = `第一天下午 13:00 從高雄出發，小女兒在後座汽座安然午睡，經南迴公路一路平穩駛抵台東市區，入住五星桂田喜來登酒店，球池放電與清爽晚餐開啟美好旅程。\n\n第二天上午參訪改建後的國立臺灣史前文化博物館，推車在無障礙展廳穿梭自如，探索館色彩啟發小寶貝的視覺想像；中午嚴格落實「大衛家庭旅行鐵律」，回客房深層午睡充電 2.5 小時，傍晚在卑南遺址公園廣闊草坪牽手慢步，身心徹底舒展。\n\n第三天早晨造訪加路蘭海岸，迎著太平洋壯麗波濤拍下幸福全家福；退房後享用午餐，於 13:00 啟程返高，小女兒在車上午睡充飽電，傍晚平安返家，圓滿收穫無疲態的慢活回憶。`;
+        metaElem.innerHTML = `<span><i class="fa-solid fa-location-dot mr-1 text-teal-600"></i>台東市與太平洋海岸</span><span><i class="fa-regular fa-clock mr-1 text-teal-600"></i>節奏舒緩零行軍</span><span><i class="fa-solid fa-heart mr-1 text-rose-500"></i>全家情感甜蜜</span>`;
+      } else if (currentStoryMode === 'itinerary') {
+        titleElem.textContent = "📍 行程足跡全景：五大精選地點深度解構";
+        bodyElem.textContent = `這趟行程堅持「每天最多 2 核心點」：\n1. 枋寮中繼站：進南迴前妥善換尿布與身心舒展。\n2. 台東桂田喜來登：連住兩晚免搬行李，兒童遊戲室與醫療急診後盾。\n3. 史前文化博物館：全室內無障礙文化探索，推車與育嬰室滿分。\n4. 卑南遺址公園：午睡醒後大草坪放電慢步。\n5. 加路蘭海岸：太平洋浩瀚海天與裝置藝術全家美拍。`;
+        metaElem.innerHTML = `<span><i class="fa-solid fa-map-location-dot mr-1 text-purple-600"></i>景點分類回顧</span><span><i class="fa-solid fa-shield-halved mr-1 text-teal-600"></i>安全防護到位</span>`;
+      } else if (currentStoryMode === 'people') {
+        if (currentPersonFilter === '小寶貝') {
+          titleElem.textContent = "👧 19M 小寶貝成長視角：色彩、草地與甜蜜安睡";
+          bodyElem.textContent = `對 19 個月大的小女兒而言，這是一趟充滿新奇觸感與足夠睡眠的溫柔旅程。在飯店遊戲室翻滾球池、在史前館探索館興奮指著圖騰、在卑南大草地牽著爸爸媽媽的手踩草皮，更重要的是每天下午在熟悉的大床上午睡 2.5 小時，沒有任何哭鬧與過勞！`;
+        } else if (currentPersonFilter === '爸爸') {
+          titleElem.textContent = "👨 爸爸大衛視角：精準控速、平穩駕駛與全家守護";
+          bodyElem.textContent = `爸爸肩負全家自駕重任，精確掌握 13:00 寶寶午睡時間出發，南迴公路平穩過彎；嚴守每日下午回房休整與醫療可及性紅線，打造一場真正「盡興且不累」的高品質家庭假期！`;
+        } else if (currentPersonFilter === '媽媽') {
+          titleElem.textContent = "👩 媽媽視角：海風美拍、悠閒慢活與無壓陪伴";
+          bodyElem.textContent = `不必像傳統旅行那樣疲於奔命，媽媽在加路蘭海岸享受太平洋海風與絕美拍照時光，在史前館優雅推車育嬰，全家悠然享用五星自助早餐與溫熱鮮魚，度假感滿滿！`;
+        } else {
+          titleElem.textContent = "👨‍👩‍👧 甜蜜全家福：台東慢旅行的美好定格";
+          bodyElem.textContent = `夫妻兩人與 19 個月大的女兒，在太平洋海岸留下珍貴笑容。不趕路、不焦慮，該休息就休整、該看海就看海，是最溫暖的家庭記憶。`;
+        }
+        metaElem.innerHTML = `<span><i class="fa-solid fa-heart mr-1 text-pink-500"></i>家人情感特寫</span><span><i class="fa-solid fa-camera mr-1 text-purple-600"></i>真情瞬間記錄</span>`;
+      }
+    }
+
+    function renderTimelineView(photos, container) {
+      let html = `<div class="relative border-l-2 border-purple-300 ml-4 sm:ml-6 pl-4 sm:pl-6 space-y-6">`;
+      photos.forEach(p => {
+        const timeStr = p.dateTaken ? p.dateTaken.replace('T', ' ').substring(5, 16) : '時間記錄';
+        html += `
+          <div class="relative group">
+            <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-purple-600 border-4 border-white shadow-xs"></div>
+            <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-sm hover:shadow-md transition">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span class="badge-pill bg-purple-100 text-purple-800 text-xs"><i class="fa-regular fa-clock mr-1"></i>${timeStr}</span>
+                <span class="text-xs text-slate-500 font-medium"><i class="fa-solid fa-map-pin text-purple-500 mr-1"></i>${p.spotName}</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base mb-2">${p.title}</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
+                <div class="sm:col-span-1 img-zoom-container h-40 bg-slate-100 rounded-xl overflow-hidden">
+                  <img src="${p.imgUrl}" alt="${p.title}" class="w-full h-full object-cover">
+                </div>
+                <div class="sm:col-span-2 text-xs sm:text-sm text-slate-600 leading-relaxed space-y-2">
+                  <p>${p.caption}</p>
+                  <div class="flex flex-wrap gap-1 pt-1">
+                    ${p.tags.map(t => `<span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md text-[11px] font-medium">#${t}</span>`).join('')}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      html += `</div>`;
+      container.innerHTML = html;
+    }
+
+    function renderItineraryView(photos, container) {
+      const grouped = {};
+      photos.forEach(p => {
+        if (!grouped[p.spotName]) grouped[p.spotName] = [];
+        grouped[p.spotName].push(p);
+      });
+
+      let html = `<div class="grid grid-cols-1 md:grid-cols-2 gap-5">`;
+      for (const [spotName, pList] of Object.entries(grouped)) {
+        html += `
+          <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <h4 class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                <i class="fa-solid fa-location-dot text-purple-600"></i> ${spotName}
+              </h4>
+              <span class="badge-pill bg-purple-50 text-purple-700 text-xs">${pList.length} 張照片</span>
+            </div>
+            <div class="space-y-3">
+              ${pList.map(p => `
+                <div class="flex gap-3 items-center">
+                  <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-slate-100">
+                    <img src="${p.imgUrl}" class="w-full h-full object-cover">
+                  </div>
+                  <div class="text-xs text-slate-600 space-y-1">
+                    <div class="font-bold text-slate-800">${p.title}</div>
+                    <p class="line-clamp-2">${p.caption}</p>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+      html += `</div>`;
+      container.innerHTML = html;
+    }
+
+    function renderPeopleView(photos, container) {
+      const filtered = currentPersonFilter === 'all' 
+        ? photos 
+        : photos.filter(p => p.tags.includes(currentPersonFilter));
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="bg-white rounded-2xl p-8 text-center text-slate-500 border border-slate-200">
+            <i class="fa-solid fa-camera text-3xl text-purple-300 mb-2"></i>
+            <p class="text-sm font-semibold">此主角分類目前尚無標籤照片，可透過上方上傳實拍照片自動新增！</p>
+          </div>
+        `;
+        return;
+      }
+
+      let html = `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">`;
+      filtered.forEach(p => {
+        html += `
+          <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="h-48 overflow-hidden bg-slate-100">
+                <img src="${p.imgUrl}" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+              </div>
+              <div class="p-4 space-y-2">
+                <div class="flex items-center justify-between text-xs text-slate-500">
+                  <span>${p.spotName}</span>
+                </div>
+                <h4 class="font-bold text-slate-900 text-sm">${p.title}</h4>
+                <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">${p.caption}</p>
+              </div>
+            </div>
+            <div class="p-4 pt-0 flex flex-wrap gap-1">
+              ${p.tags.map(t => `<span class="bg-purple-50 text-purple-700 px-2 py-0.5 rounded-md text-[10px] font-semibold">#${t}</span>`).join('')}
+            </div>
+          </div>
+        `;
+      });
+      html += `</div>`;
+      container.innerHTML = html;
+    }
+
+    function copyStoryText() {
+      const title = document.getElementById('narrative-title').textContent;
+      const body = document.getElementById('narrative-body').textContent;
+      const fullText = `${title}\n\n${body}\n\n— 2026 台東三天兩夜家庭慢旅 (大衛人生 ‧ 夫妻＋19M 女兒)`;
+
+      navigator.clipboard.writeText(fullText).then(() => {
+        const label = document.getElementById('copy-btn-label');
+        label.textContent = "已複製到剪貼簿！";
+        setTimeout(() => { label.textContent = "複製手帳文字"; }, 2500);
+      });
+    }
+
+    // EXIF Upload Logic
+    async function handlePhotoUpload(event) {
+      const files = event.target.files;
+      if (!files || files.length === 0) return;
+
+      const statusElem = document.getElementById('upload-status');
+      statusElem.classList.remove('hidden');
+
+      const newPhotos = [];
+
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        let lat = null, lng = null, dateTaken = null;
+
+        try {
+          if (window.exifr) {
+            const exif = await exifr.parse(file, { gps: true, pick: ['DateTimeOriginal', 'latitude', 'longitude'] });
+            if (exif) {
+              if (exif.latitude && exif.longitude) {
+                lat = exif.latitude;
+                lng = exif.longitude;
+              }
+              if (exif.DateTimeOriginal) {
+                dateTaken = new Date(exif.DateTimeOriginal).toISOString();
+              }
+            }
+          }
+        } catch (e) {
+          console.warn("EXIF parse error on", file.name, e);
+        }
+
+        const imgUrl = URL.createObjectURL(file);
+        const matchedSpot = matchNearestSpot(lat, lng);
+
+        newPhotos.push({
+          id: "user_" + Date.now() + "_" + i,
+          title: file.name.replace(/\.[^/.]+$/, ""),
+          imgUrl: imgUrl,
+          lat: lat || (matchedSpot ? matchedSpot.lat : 22.7538),
+          lng: lng || (matchedSpot ? matchedSpot.lng : 121.1518),
+          dateTaken: dateTaken || new Date().toISOString(),
+          spotId: matchedSpot ? matchedSpot.id : "user_spot",
+          spotName: matchedSpot ? matchedSpot.name : "台東・自選地點",
+          tags: ["小寶貝", "全家福"],
+          caption: `拍攝於 ${matchedSpot ? matchedSpot.name : "台東旅途中"}。19M 小女兒與家人溫馨同行，留下無價童年成長回憶！`
+        });
+      }
+
+      userPhotos = [...userPhotos, ...newPhotos];
+      statusElem.classList.add('hidden');
+      renderPhotoStory();
+      plotPhotosOnMap();
+    }
+
+    function matchNearestSpot(lat, lng) {
+      if (!lat || !lng) return ITINERARY_STOPS[2]; // Default to Sheraton
+      let nearest = ITINERARY_STOPS[2];
+      let minDist = 999999;
+
+      ITINERARY_STOPS.forEach(stop => {
+        const dist = Math.hypot(stop.lat - lat, stop.lng - lng);
+        if (dist < minDist) {
+          minDist = dist;
+          nearest = stop;
+        }
+      });
+      return nearest;
+    }
+
+    function loadDemoPhotos() {
+      userPhotos = [];
+      renderPhotoStory();
+      plotPhotosOnMap();
+    }
+
+    function clearAllPhotos() {
+      userPhotos = [];
+      renderPhotoStory();
+      plotPhotosOnMap();
+    }
+
+    // ==========================================
+    // 🗺️ LEAFLET INTERACTIVE MAP
+    // ==========================================
+    let map = null;
+    let markersLayer = null;
+
+    function initMap() {
+      map = L.map('map').setView([22.68, 120.85], 9);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      markersLayer = L.layerGroup().addTo(map);
+      plotPhotosOnMap();
+    }
+
+    function plotPhotosOnMap() {
+      if (!map || !markersLayer) return;
+      markersLayer.clearLayers();
+
+      // Route polyline for road trip (Kaohsiung -> Fangliao -> Taitung)
+      const routePoints = [
+        [22.6273, 120.3014], // Kaohsiung
+        [22.3686, 120.5925], // Fangliao
+        [22.2450, 120.8800], // South-Link Coast
+        [22.7538, 121.1518], // Taitung City
+        [22.8086, 121.1965]  // Jialulan
+      ];
+      L.polyline(routePoints, {
+        color: '#0d9488',
+        weight: 3,
+        dashArray: '6, 8',
+        opacity: 0.7
+      }).addTo(markersLayer);
+
+      // Plot Itinerary Stops
+      ITINERARY_STOPS.forEach(stop => {
+        let color = "#0d9488"; // default teal
+        if (stop.type === 'hotel') color = "#2563eb"; // blue
+        else if (stop.type === 'hospital') color = "#e11d48"; // rose
+        else if (stop.type === 'rest') color = "#d97706"; // amber
+
+        const circle = L.circleMarker([stop.lat, stop.lng], {
+          radius: stop.type === 'hotel' || stop.type === 'hospital' ? 9 : 7,
+          fillColor: color,
+          color: "#ffffff",
+          weight: 2,
+          opacity: 1,
+          fillOpacity: 0.95
+        }).addTo(markersLayer);
+
+        circle.bindPopup(`
+          <div class="text-xs p-1">
+            <strong class="text-slate-900 text-sm block mb-1 font-bold">${stop.name}</strong>
+            <span class="text-slate-500 block mb-2">${stop.day > 0 ? 'Day ' + stop.day : '醫療應急備援'}</span>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${stop.lat},${stop.lng}" target="_blank" class="inline-block bg-teal-600 text-white px-2 py-1 rounded text-[11px] font-semibold hover:bg-teal-700">
+              <i class="fa-solid fa-location-arrow mr-1"></i>Google 導航直達
+            </a>
+          </div>
+        `);
+      });
+
+      // Plot Photos Footprints
+      const photos = getActivePhotos();
+      photos.forEach(p => {
+        if (p.lat && p.lng) {
+          const photoMarker = L.circleMarker([p.lat, p.lng], {
+            radius: 8,
+            fillColor: "#a855f7",
+            color: "#ffffff",
+            weight: 2,
+            opacity: 1,
+            fillOpacity: 0.9
+          }).addTo(markersLayer);
+
+          photoMarker.bindPopup(`
+            <div class="text-xs p-1 max-w-[200px]">
+              <img src="${p.imgUrl}" class="w-full h-24 object-cover rounded-md mb-1.5">
+              <strong class="text-slate-900 block mb-0.5">${p.title}</strong>
+              <p class="text-slate-600 line-clamp-2">${p.caption}</p>
+            </div>
+          `);
+        }
+      });
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      loadChecklist();
+      renderPhotoStory();
+      initMap();
+    });
+  </script>
+</body>
+</html>
